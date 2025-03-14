@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* תמיכה בטקסט עברי */
+  .dir-rtl {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .dir-ltr {
+    direction: ltr;
+    text-align: left;
+  }
+  
+  /* טיפול בטקסט דו-כיווני */
+  .bidi-override {
+    unicode-bidi: bidi-override;
+  }
+  
+  .bidi-embed {
+    unicode-bidi: embed;
+  }
+  
+  .bidi-isolate {
+    unicode-bidi: isolate;
+  }
+  
+  /* גופנים אופטימליים לעברית */
+  .font-hebrew {
+    font-family: 'Segoe UI', 'Arial Hebrew', 'David', 'Times New Roman', sans-serif;
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+  }
+  
+  /* כיוון פסקאות */
+  .rtl-paragraph {
+    display: block;
+    text-align: right;
+    direction: rtl;
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+/* מסגרות טקסט בעברית */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] * {
+  text-align: inherit;
+}
